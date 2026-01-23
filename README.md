@@ -50,6 +50,9 @@ SELECT
 FROM hr_data
 GROUP BY OverTime;
 
+
+
+
 ## Recommendations
 Based on the data, I proposed the following strategic actions to the HR Director:
 
