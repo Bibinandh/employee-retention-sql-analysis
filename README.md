@@ -1,67 +1,60 @@
-# Glasgow Chamber of Commerce: Employee Retention & Attrition Analysis
+# Glasgow Chamber of Commerce: Youth Engagement & Membership Growth Strategy
 
-## Executive Summary
-This project analyzes workforce data for "Insightful Solutions" to identify the root causes of employee turnover. The dataset covered **1,470 employees**, revealing a total attrition rate of **16% (237 employees)**.
+**Consulting project | University of Strathclyde Business School | Insightful Solutions Consulting Group (Group 15, team of 7)**
 
-The goal was to provide data-driven recommendations to the HR Director to improve retention strategies and reduce hiring costs.
+## Overview
 
----
+A consulting engagement for the **Glasgow Chamber of Commerce**. The Chamber wanted to connect with a younger audience, raise engagement across its whole membership and build a stronger support ecosystem for local businesses.
 
-## Key Insights & Findings
+Our team analysed the Chamber's position, identified two growth markets (universities and start-ups) and proposed five recommendations covering membership pricing, trust-building, content, a digital product and events.
 
-### 1. The Overtime "Burnout" Factor
-* **Finding:** Overtime is the strongest predictor of attrition. Employees working overtime accounted for **54% of all departures**.
-* **Impact:** The attrition count for overtime workers (127) was significantly higher than for non-overtime workers (110), despite overtime workers being a smaller group.
+📄 **Full report:** [Insightful_Solutions_Consulting_Group_15.pdf](Insightful_Solutions_Consulting_Group_15.pdf)
 
-### 2. Income & Job Role Disparities
-* **Income:** Attrition is highest among employees earning between **$2,000 - $3,000 monthly**. As income rises above $6,000, retention improves drastically.
-* **Roles:** "Sales Representatives" and "Laboratory Technicians" showed the highest turnover rates, indicating potential dissatisfaction with compensation or workload in these specific roles.
+## Client objectives
 
-### 3. Demographics (Age & Gender)
-* **Age:** The workforce is predominantly aged 26-35, but attrition is disproportionately high in the **18-20 and 26-30 age brackets**.
-* **Gender:** Male employees accounted for **63%** of the total attrition (150 departures) compared to 37% for females.
+1. **Connect with the youth:** reach younger professionals and students through channels they already use.
+2. **Raise engagement across all members:** make every member, whatever their age or sector, feel involved.
+3. **Build an ecosystem of support:** mentorship, knowledge exchange and mutual assistance.
 
----
+## Key insights
 
-## Methodology & SQL Logic
-*Note: The original raw data files are confidential. Below are the SQL structures used to extract these insights.*
-
-I used **SQL** to clean the data and segment high-risk groups, and **Excel** for the final visualization.
-
-### A. Identifying High-Risk Roles (SQL)
-To find which job roles had the highest attrition rates, I grouped data by role and calculated the percentage of leavers.
-
-```sql
--- Sample Query: Calculate Attrition Count by Job Role
-SELECT
-    JobRole,
-    COUNT(EmployeeNumber) AS Total_Employees,
-    SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) AS Attrition_Count,
-    ROUND(SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(EmployeeNumber), 2) AS Attrition_Rate
-FROM hr_data
-GROUP BY JobRole
-ORDER BY Attrition_Rate DESC;
-
--- Sample Query: Overtime vs. Attrition
-SELECT
-    OverTime,
-    COUNT(*) as Total_Count,
-    SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) as Leavers
-FROM hr_data
-GROUP BY OverTime;
-
-
-
+- **SWOT analysis:** the Chamber's strengths are its reputation, member base and local knowledge. Its main weakness is heavy reliance on membership and event fees. The biggest opportunities are digitalisation and university partnerships, and the main threats are economic pressure and a traditional image among younger audiences.
+- **Growth markets:** Glasgow has six universities, which offer direct access to engaged students through university societies. Glasgow is also a leading tech investment hub, and UK start-up survival falls from about **74% in year two to 57% by year three** (ONS data via Statista), showing a clear need for support.
+- **Content trends:** weekly podcast listening is highest among **26 to 35 year olds (38%)** and **15 to 25 year olds (31%)** (AudienceProject, Q1 2020). UK podcast listeners are estimated at **23.3 million, rising to 28.1 million by 2026** (Statista).
 
 ## Recommendations
-Based on the data, I proposed the following strategic actions to the HR Director:
 
-1.  **Overtime Cap & Review**: Investigate the workload of Sales Reps and Lab Techs. Implement a "burnout warning" system for employees consistently logging overtime, as this group accounts for 54% of all attrition.
-2.  **Compensation Adjustment**: Review salary bands for the $2,000 - $3,000 income bracket. The data shows this is a "danger zone" for turnover, suggesting entry-level pay may not be competitive.
-3.  **Career Progression**: Implement clear career pathways for the 26-35 age group. Since attrition is high here, these employees are likely leaving for better growth opportunities elsewhere.
+| # | Recommendation | What it does |
+|---|---|---|
+| 1 | **New membership tiers** | *Future Face* (£150/year) for early-career professionals and *Start-up* (£250/year) for businesses operating 24 months or more, offering networking, career development, expert advice and funding access. Benchmarked against the Greater Birmingham Chambers of Commerce. |
+| 2 | **Student ambassador programme** | Authentic peer-to-peer outreach, campus content and a live feedback loop on student preferences. |
+| 3 | **Chamber podcast** | Weekly local business news, regulation explainers and guest interviews, with revenue from sponsorship, advertising and premium content. |
+| 4 | **Members' app** | Mentorship platform, job and internship postings, members-only chat, training courses, content library and industry-specific member search. Inspired by the London and British Chambers of Commerce apps. |
+| 5 | **Two new events** | *Idea Meets Capital* connects founders with investors, and *Wisdom Quest* (industry mentorship mixer) links students and young professionals with experienced leaders. |
 
----
+## Approach
 
-## Tools Used
-* **SQL**: Used for querying specific demographic cuts, identifying high-risk job roles, and calculating aggregate attrition rates from the raw dataset.
-* **Excel**: Used to generate the final pivot tables and visualizations (charts) presented in the report.
+- Strategic analysis with **SWOT** and market-opportunity mapping
+- Secondary research using **Statista**, **ONS** and **AudienceProject** data
+- Competitor and peer benchmarking against other UK chambers of commerce
+- Pricing and packaging design for membership tiers
+- Product definition for the proposed app and podcast
+
+## My contribution
+
+[Replace this line with 2 to 3 sentences on what you personally worked on, for example: "I led the membership tier design and pricing proposal, and contributed to the SWOT analysis and the app feature specification."]
+
+## Repository contents
+
+- `Insightful_Solutions_Consulting_Group_15.pdf`: the full consulting report
+- `SWOT_ANALYSIS.png`: SWOT analysis of the Chamber
+- `ANALYSIS_GRAPH.png`: UK new-enterprise survival rates (ONS / Statista)
+- `ANALYSIS_GRAPH_2.png`: weekly podcast listening by age (AudienceProject / Statista)
+- `ANALYSIS_GRAPH_3.png`: UK podcast listeners 2017 to 2026 (Statista)
+
+## Data sources
+
+- Office for National Statistics via Statista (2023), UK new enterprise survival rates, 2007 to 2020
+- AudienceProject via Statista (2023), weekly podcast listening in the UK by age, Q1 2020
+- Statista Advertising & Media Insights (2023), UK podcast listener estimates, 2017 to 2026
+- Greater Birmingham Chambers of Commerce, membership packages
