@@ -1,4 +1,4 @@
-# Insightful Solutions: Employee Retention & Attrition Analysis
+# Glasgow Chamber of Commerce: Employee Retention & Attrition Analysis
 
 ## Executive Summary
 This project analyzes workforce data for "Insightful Solutions" to identify the root causes of employee turnover. The dataset covered **1,470 employees**, revealing a total attrition rate of **16% (237 employees)**.
